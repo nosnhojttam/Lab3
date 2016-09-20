@@ -40,6 +40,11 @@
         Edwin Yantis
         
     );
+    
+    function getPlayers($num){
+        $players = array_rand($names, $num);
+        print_r($players);
+    }
 
 >
 
