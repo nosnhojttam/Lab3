@@ -40,8 +40,12 @@
         "Edwin Yantis");
         
     function getPlayers($num){
+        global $names;
         $players = array_rand($names, $num);
-        print_r($players);
+        for($i =0; $i < count($players); $i++){
+            echo $names[$players[$i]];
+            echo "<br>";
+        }
     }
 
 ?>
