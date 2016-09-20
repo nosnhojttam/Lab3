@@ -40,7 +40,9 @@
         "Edwin Yantis");
         
     function getPlayers($num){
+        global $names;
         $players = array_rand($names, $num);
+        
         print_r($players);
     }
 
@@ -50,13 +52,35 @@
 <!DOCTYPE html>
 
 <html>
+     <style>
+      
+      footer{
+             text-align:center;
+         }
+       
+         body{
+             background-color:#c0c0c0;
+             text-align: center;
+         }
+         
+         .listitem{
+             color:green;
+             
+         }
+      
+      </style>
+        
 
 <head>
+     <header>
+        <h1 style="blue; background:gray "> Silver Jack </h1>
+        </header>
      <meta charset="utf-8">
      <title>Lab 3: Silverjack</title>
 </head>
 
 <body>
+    
     <?php
         getPlayers(4);
     ?>
