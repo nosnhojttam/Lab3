@@ -39,13 +39,48 @@
         "Ulysses Vega",
         "Edwin Yantis");
         
+    $players = array();
+    $scores = array();
+        
     function getPlayers($num){
-        global $names;
+        global $names, $players;
+        
         $players = array_rand($names, $num);
         for($i =0; $i < count($players); $i++){
             echo $names[$players[$i]];
             echo "<br>";
         }
+    }
+    
+    function getHand(){
+        global $players, $scores;
+        for($i = 0; $i < count($players); $i++){
+            $total = 0;
+            while($total < 42){
+                $card = rand(1,52);
+                if(($total+$card) <= 42){
+                    $total += $card % 13;
+                    if($card < 14){
+                        echo "<img src='img/cards/clubs/" . $card . ".png'>";
+                    }
+                    else if($card < 27){
+                        echo "<img src='img/cards/diamonds/" . ($card%13) . ".png'>";
+                    }
+                    else if($card < 40){
+                        echo "<img src='img/cards/hearts/" . ($card%13) . ".png'>";
+                    }
+                    else{
+                        echo "<img src='img/cards/spades/" . ($card%13) . ".png'>";
+                    }
+                }
+            }
+            $scores[] = $total;
+            echo "<br>";
+        }
+    }
+    
+    function displayScores(){
+        
     }
 
 ?>
@@ -63,6 +98,7 @@
 <body>
     <?php
         getPlayers(4);
+        getHand();
     ?>
 </body>
 
