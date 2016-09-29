@@ -46,15 +46,12 @@
         global $names, $players;
         
         $players = array_rand($names, $num);
-        for($i =0; $i < count($players); $i++){
-            echo $names[$players[$i]];
-            echo "<br>";
-        }
     }
     
     function getHand(){
-        global $players, $scores;
+        global $names, $players, $scores;
         for($i = 0; $i < count($players); $i++){
+            echo $names[$players[$i]];
             $total = 0;
             while($total < 42){
                 $card = rand(1,52);
@@ -64,13 +61,19 @@
                         echo "<img src='img/cards/clubs/" . $card . ".png'>";
                     }
                     else if($card < 27){
-                        echo "<img src='img/cards/diamonds/" . ($card%13) . ".png'>";
+                        echo "<img src='img/cards/diamonds/" . ($card%13 == 0 ? 13 : $card%13) . ".png'>";
                     }
                     else if($card < 40){
-                        echo "<img src='img/cards/hearts/" . ($card%13) . ".png'>";
+                        if($card%13 == 0){
+                            $card = 13;
+                        }
+                        echo "<img src='img/cards/hearts/" . ($card%13 == 0 ? 13 : $card%13) . ".png'>";
                     }
                     else{
-                        echo "<img src='img/cards/spades/" . ($card%13) . ".png'>";
+                        if($card%13 == 0){
+                            $card = 13;
+                        }
+                        echo "<img src='img/cards/spades/" . ($card%13 == 0 ? 13 : $card%13) . ".png'>";
                     }
                 }
             }
