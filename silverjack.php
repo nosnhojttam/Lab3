@@ -86,30 +86,27 @@
         }
     }
     
-     function displayWinner()
+    function displayWinner()
     {
-        global $names,$players,$winners,$scores;
-        $names[$players[$i]];
+        global $names,$players,$winner,$scores;
         $max=0;
-        
         for($i = 0; $i < count($players); $i++)
         {
-            if($scores[$i]<=42&&$scores[$i]>$max)
+            if($scores[$i]>$max)
             {
-               $max=$scores[$i];  
-            }
-            if($max!=0)
-            {
+               $max=$scores[$i];
                
-                echo $names[$players[$i]]."Wins!";
             }
-             else
-             {
-                "No winner";
-                 
-             }
+        }
+         for($i = 0; $i < count($players); $i++)
+        {
+            if($scores[$i]==$max)
+            {
+               echo $names[$players[$i]]." Wins!";
+               echo "<br/>";
+            }
             
-        }     
+        }
     }
 
 
