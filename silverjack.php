@@ -86,31 +86,27 @@
         }
     }
     
-     function displayWinners()
+     function displayWinner()
     {
-        global $names, $total, $players,$winners;
-        
-        $temp="";
+        global $names,$players,$winners,$scores;
+        $names[$players[$i]];
         $max=0;
+        
         for($i = 0; $i < count($players); $i++)
         {
-           echo ' ****';
-            echo $score[$i];
-            if($score[$i]<=42&&$scores[$i]>$max)
+            if($scores[$i]<=42&&$scores[$i]>$max)
             {
-               $max=$scores;
-                
+               $max=$scores[$i];  
             }
             if($max!=0)
             {
                
-                $winners[$i]=$players[$i];
-                echo $names($players[i]). "Wins!";
-                $winners[$i]=$temp;
+                echo $names[$players[$i]]."Wins!";
             }
              else
              {
-                 break;
+                "No winner";
+                 
              }
             
         }     
@@ -133,6 +129,7 @@
     <?php
         getPlayers(4);
         getHand();
+        displayWinner();
     ?>
 </body>
 
