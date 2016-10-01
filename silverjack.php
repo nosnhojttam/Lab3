@@ -86,9 +86,36 @@
         }
     }
     
-    function displayScores(){
+     function displayWinners()
+    {
+        global $names, $total, $players,$winners;
         
+        $temp="";
+        $max=0;
+        for($i = 0; $i < count($players); $i++)
+        {
+           echo ' ****';
+            echo $score[$i];
+            if($score[$i]<=42&&$scores[$i]>$max)
+            {
+               $max=$scores;
+                
+            }
+            if($max!=0)
+            {
+               
+                $winners[$i]=$players[$i];
+                echo $names($players[i]). "Wins!";
+                $winners[$i]=$temp;
+            }
+             else
+             {
+                 break;
+             }
+            
+        }     
     }
+
 
 ?>
 
