@@ -43,22 +43,15 @@
     $scores = array();
         
     function getPlayers($num){
-<<<<<<< HEAD
-        global $names;
-        $players = array_rand($names, $num);
-        
-        print_r($players);
-=======
         global $names, $players;
         
         $players = array_rand($names, $num);
->>>>>>> ed0a0afa775f8f482c54306dfe22b0b62810f85f
     }
     
     function getHand(){
         global $names, $players, $scores;
         for($i = 0; $i < count($players); $i++){
-            echo $names[$players[$i]];
+            echo  "<h2>" . $names[$players[$i]] . "<h2/>";
             $total = 0;
             while($total < 42){
                 $card = rand(1,52);
@@ -88,7 +81,8 @@
                 }
             }
             $scores[] = $total;
-            echo "<span>".$total."</span>";
+            echo "<h1>"."<span style=color:red>".$total ."</span>". "<h1/>";
+            echo "<hr> <hr/>";
             echo "<br>";
         }
     }
@@ -97,6 +91,7 @@
     {
         global $names,$players,$winner,$scores;
         $max=0;
+        
         for($i = 0; $i < count($players); $i++)
         {
             if($scores[$i]>$max)
@@ -109,54 +104,37 @@
         {
             if($scores[$i]==$max)
             {
-               echo $names[$players[$i]]." Wins!";
+               echo "<h1>" . $names[$players[$i]]." Wins!" . "<hr/>";
                echo "<br/>";
             }
-            
         }
     }
-
-
 ?>
-
 
 <!DOCTYPE html>
 
 <html>
+<head>
      <style>
-      
-      footer{
-             text-align:center;
-         }
-       
-         body{
-             background-color:#c0c0c0;
-             text-align: center;
-         }
-         
-         .listitem{
-             color:green;
-             
-         }
+    @import url(https://cst336-mart8725.c9users.io/labs/Lab3/style.css);
       
       </style>
-        
-
-<head>
-     <header>
-        <h1 style="blue; background:gray "> Silver Jack </h1>
-        </header>
+       <h1 style="blue; background:gray "> Silver Jack </h1>
      <meta charset="utf-8">
      <title>Lab 3: Silverjack</title>
 </head>
 
 <body>
-    
+    <hr> 
     <?php
         getPlayers(4);
         getHand();
         displayWinner();
-    ?>
+    ?>  
+    <hr/>
 </body>
-
+<footer>
+    &copy; Matt, Bryan, Adrian, 2016. <br />
+     
+    <footer/>
 </html>
